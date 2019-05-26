@@ -1,10 +1,9 @@
 language: node_js
 sudo: false
 node_js:
-  - "6"
   - "8"
   - "10"
-  - "11"
+  - "12"
 
 stages:
   - name: test
@@ -58,7 +57,7 @@ script:
 jobs:
   include:
     - stage: lint
-      node_js: 6
+      node_js: 12
       before_install: skip
       before_script: skip
       script:
@@ -66,7 +65,7 @@ jobs:
         - commitlint-travis
 
     - stage: azure
-      node_js: 8
+      node_js: 12
       before_install:
       - mkdir ~/.tedious
       - >
@@ -89,7 +88,7 @@ jobs:
       script: npm run test-integration
 
     - stage: azure
-      node_js: 8
+      node_js: 12
       before_install:
       - mkdir ~/.tedious
       - >
@@ -112,13 +111,13 @@ jobs:
       script: npm run test-integration
 
     - stage: release
-      node_js: 8
+      node_js: 12
       before_install: skip
       before_script: skip
       script: npm run semantic-release
 
     - stage: tag-latest
-      node_js: 8
+      node_js: 12
       before_install:
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
       before_script: skip
