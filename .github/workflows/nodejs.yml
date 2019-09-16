@@ -7,9 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Linting
     steps:
-      - run: |
-          npm install
-          npm run lint
+    - uses: actions/checkout@v1
+    - run: |
+        npm install
+        npm run lint
      
   test:
     runs-on: ubuntu-latest
